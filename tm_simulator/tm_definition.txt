@@ -1,0 +1,31 @@
+// TM recognizer for ww^r
+// Beginning of description is a single line with "TM" as (line 0)
+// following is 7-tuple description with delta last (many lines)
+// line 1 is list of states, labels are strings, unquoted, comma-separated, no whitespace
+// line 2 is list of input alphabet, sigma (ASCII characters, non-whitespace)
+// line 3 is gamma, tape alphabet; sigma proper subset of gamma (ASCII, no 'L' or 'R')
+// line 4 initial state, single string
+// line 5 blank symbol
+// line 6 F: list of final states, possibly comma serparated, subset of sigma
+// lines 7+: delta, one 5-tuple per line
+TM
+qi, q0, qx0, qd, q1, qx1, qf
+0,1
+0,1,_
+qi
+_
+qf
+(qi,0, q0,_, R)
+(qi,1, q1,_, R)
+(q0,0,q0, 0, R)
+(q0,1,q0, 1, R)
+(q0,_,qx0,_,L)
+(q1,0,q1, 0, R)
+(q1,1,q1, 1, R)
+(q1,_,qx1,_,L)
+(qx0,0,qd,_,L)
+(qx1,1,qd,_,L)
+(qd,0,qd, 0, L)
+(qd,1,qd, 1, L)
+(qd,_,qi, _, R)
+(qi,_,qf,_,R)
