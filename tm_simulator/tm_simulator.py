@@ -96,8 +96,8 @@ class TuringMachine:
             if self.is_recognizer:
                 return f"{input_string} accepted"
             else:
-                # For transducers, return the tape content excluding the blank symbol
-                return ''.join(self.tape).strip(self.blank_symbol)
+                # For transducers, return the tape content including only the input alphabet
+                return f"The string {input_string} was changed to {''.join([char for char in self.tape if char in self.input_alphabet]).strip(self.blank_symbol)}"
         else:
             return f"{input_string} rejected"
 
